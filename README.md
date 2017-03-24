@@ -1,6 +1,6 @@
-# ReactBoilerplate
+# TODO APP REACT.JS
 
-Boilerplate project to start React apps, the project contains the following:
+Todo app containing the following:
 
 1. A simple express server prepared to be hosted on Heroku, run it with the following: node server.js
 2. Webpack configured to bundle .jsx files with ES6 features using Babel, bundle everything with: webpack
@@ -10,7 +10,7 @@ Boilerplate project to start React apps, the project contains the following:
 6. Project file structure with a sample react app (hello world style) bundled with its node_modules to work as is
 
 
-To run the boilerplate:
+To run the app:
 
 1. Install the necessary npm moduler (Create node_modules folder):
 
