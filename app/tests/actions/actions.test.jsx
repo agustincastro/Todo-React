@@ -16,9 +16,9 @@ it('Should generate search text action', ()=>{
 it('Should generate add todo action', ()=>{
   var action = {
     type: 'ADD_TODO',
-    searchText: 'Thing to do'
+    text: 'Thing to do'
   };
-  var res = actions.addTodo(action.searchText);
+  var res = actions.addTodo(action.text);
   expect(res).toEqual(action);
 
 });
