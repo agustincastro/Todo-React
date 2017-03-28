@@ -42,7 +42,6 @@ describe('Reducers', ()=> {
 
 
       it('Should toggle todo', ()=>{
-
         var todos = [{
           id: '123',
           text: 'Something',
@@ -50,21 +49,32 @@ describe('Reducers', ()=> {
           createdAt: 123,
           completedAt: 125
         }];
-
         var action = {
           type: 'TOGGLE_TODO',
           id: '123'
         };
         var res = reducers.todosReducer(df(todos), df(action));
-        console.log(res);
         expect(res[0].completed).toEqual(false);
         expect(res[0].completedAt).toEqual(undefined);
+      });
 
-
+      it('Should add existing todos', ()=>{
+        var todos = [{
+          id: 111,
+          text: 'anything',
+          completed: false,
+          completedAt:undefined,
+          createdAt: 3300
+        }];
+        var action = {
+          type: 'ADD_TODOS',
+          todos
+        };
+        var res = reducers.todosReducer(df([]), df(action));
+        expect(res.length).toEqual(1);
+        expect(res[0]).toEqual(todos[0]);
       });
 
     });
-
-
   });
 });
