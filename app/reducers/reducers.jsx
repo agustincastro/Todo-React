@@ -4,6 +4,17 @@ var moment = require('moment');
 //a reducer for it. The reducer is a pure function that takes the previous state
 //and an action, and returns the next state.
 
+export var authReducer = (state = {}, action) => {
+    switch (action.type) {
+        case 'LOGIN':
+            return { uid: action.uid};
+        case 'LOGOUT':
+            return {};
+        default:
+            return state;
+    };
+};
+
 export var searchTextReducer = (state = '', action) => {
     switch (action.type) {
         case 'SET_SEARCH_TEXT':

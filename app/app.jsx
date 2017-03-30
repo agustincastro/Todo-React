@@ -10,11 +10,13 @@ import router from 'app/router/';
 
 // Redirect users to login and index when auth state changes
 firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-        hashHistory.push('/todos');
-    } else {
-        hashHistory.push('/');
-    }
+  if (user) {
+    store.dispatch(actions.login(user.uid));
+    hashHistory.push('/todos');
+  } else {
+    store.dispatch(actions.logout(user.uid));
+    hashHistory.push('/');
+  }
 });
 
 store.dispatch(actions.startAddTodos());
@@ -25,6 +27,6 @@ $(document).foundation();
 require('style!css!sass!applicationStyles');
 
 ReactDOM.render(
-    <Provider store={store}>
+  <Provider store={store}>
     {router}
-</Provider>, document.getElementById('app'));
+  </Provider>, document.getElementById('app'));
