@@ -1,4 +1,4 @@
-import firebase, {firebaseRef} from 'app/firebase/index';
+import firebase, {firebaseRef, githubProvider} from 'app/firebase/index';
 import moment from 'moment';
 //Instead of mutating the state directly, you specify the mutations you want
 //to happen with plain objects called actions. Then you write a special function
@@ -72,4 +72,24 @@ export var startAddTodos = () => {
             dispatch(addTodos(parsedTodos))
         });
     };
+};
+
+
+export var startLogin = () => {
+  return (dispatch, getState) => {
+    firebase.auth().signInWithPopup(githubProvider).then((result)=>{
+      console.log('auth worked', result)
+    }, (error)=>{
+      console.log('unable to auth', error);
+    });
+  };
+};
+
+
+export var startLogout = () => {
+  return (dispatch, getState) => {
+    return firebase.auth().signOut().then(()=>{
+      console.log('Logged out');
+    })
+  };
 };
