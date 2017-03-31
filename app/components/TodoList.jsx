@@ -3,9 +3,9 @@ var {connect} = require('react-redux');
 import Todo from 'Todo';
 var TodoAPI = require('TodoAPI');
 
-export var TodoList = React.createClass({
+export class TodoList extends React.Component{
 
-  render: function(){
+  render(){
     var {todos, showCompleted, searchText} = this.props;
     var renderTodos = () => {
       var filteredTodos = TodoAPI.filterTodos(todos, showCompleted, searchText);
@@ -26,7 +26,7 @@ export var TodoList = React.createClass({
     );
   }
 
-});
+};
 
 
 // The first argument of connect lets us specify which part of the state the component wants to access

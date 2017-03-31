@@ -3,9 +3,9 @@ var {connect} = require('react-redux');
 var actions = require('actions');
 var moment = require('moment');
 
-export var Todo = React.createClass({
+export class Todo extends React.Component{
 
-  render: function(){
+  render(){
     var {id, text, completed, createdAt, completedAt, dispatch} = this.props;
     var todoClassName = completed ? 'todo todo-completed' : 'todo';
 
@@ -34,7 +34,7 @@ export var Todo = React.createClass({
     );
   }
 
-});
+};
 
 
 // When we call connect, we hace access to the dispatch variable in the props
